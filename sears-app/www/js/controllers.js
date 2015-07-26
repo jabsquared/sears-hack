@@ -1,5 +1,9 @@
 // All of the apps controllers are located here.
 
+app.controller('RatingCtrl', ['$scope', function($scope){
+
+}])
+
 app.controller('ChatCtrl', ['$scope', function($scope){
 
 }])
