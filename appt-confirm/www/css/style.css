@@ -29,3 +29,27 @@ h2 {
 .reviews {
 	float: right;
 }
+
+.tech-image-review {
+	float: left;
+	width: 100px;
+}
+
+.tech-name {
+	float: left;
+	width: 200px;
+}
+
+.posted {
+	float: left;
+	width: 100px;
+}
+
+.tech-info {
+	width: 400px;
+}
+
+.tech-review {
+	text-align: center;
+	clear: left;
+}
