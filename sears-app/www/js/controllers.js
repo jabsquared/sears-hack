@@ -1,7 +1,9 @@
 // All of the apps controllers are located here.
 
 app.controller('RatingCtrl', ['$scope', function($scope) {
-
+  // set the rate and max variables
+ $scope.rate = 1;
+ $scope.max = 5;
 }])
 
 app.controller('ChatCtrl', ['$scope', function($scope) {
