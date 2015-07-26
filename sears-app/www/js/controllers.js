@@ -10,19 +10,62 @@ app.controller('ChatCtrl', ['$scope', function($scope) {
 
 app.controller('VideoCtrl', ['$scope', function($scope) {
 
-  var webrtc = new SimpleWebRTC({
-    // the id/element dom element that will hold "our" video
-    localVideoEl: 'localVideo',
-    // the id/element dom element that will hold remote videos
-    remoteVideosEl: 'remoteVideos',
-    // immediately ask for camera access
-    autoRequestMedia: true
-  });
+  $scope.audioDevices = [];
 
-  webrtc.on('readyToCall', function() {
-    // you can name it anything
-    webrtc.joinRoom('your awesome room name');
-  });
+  $scope.videoDevices = [];
+
+  if (typeof MediaStreamTrack === 'undefined') {
+    console.log('This browser does not support MediaStreamTrack.');
+    $scope.audioDevices.push({
+      id: 'default',
+      label: 'Default'
+    });
+    $scope.videoDevices.push({
+      id: 'default',
+      label: 'Default'
+    });
+  } else {
+    MediaStreamTrack.getSources(function(sourceInfos) {
+
+      for (var i = 0; i !== sourceInfos.length; ++i) {
+        var sourceInfo = sourceInfos[i];
+        if (sourceInfo.kind === 'audio') {
+          sourceInfo.label = sourceInfo.label || 'microphone ' + ($scope.audioDevices.length + 1);
+          $scope.audioDevices.push(sourceInfo);
+
+        } else if (sourceInfo.kind === 'video') {
+          sourceInfo.label = sourceInfo.label || 'camera ' + ($scope.videoDevices.length + 1);
+          $scope.videoDevices.push(sourceInfo);
+        }
+      }
+    });
+  }
+
+  //default media options
+  // var mediaOptions = {
+  //   audio: true,
+  //   video: true
+  // };
+  //
+  // if (selectedVideoDevice && selectedVideoDevice.sourceId) {
+  //   mediaOptions.video = {
+  //     mandatory: [{
+  //       sourceId: selectedVideoDevice.sourceId
+  //     }]
+  //   };
+  // }
+  //
+  // var webrtc = new SimpleWebRTC({
+  //   localVideoEl: 'localVideo',
+  //   remoteVideosEl: 'remotesVideos',
+  //   autoRequestMedia: true,
+  //   media: mediaOptions
+  // });
+
+  // webrtc.on('readyToCall', function() {
+  //   // you can name it anything
+  //   webrtc.joinRoom('jabSquared');
+  // });
 
 }])
 
