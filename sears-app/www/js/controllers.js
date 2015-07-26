@@ -1,9 +1,26 @@
 // All of the apps controllers are located here.
 
-app.controller('RatingCtrl', ['$scope', function($scope) {
+app.controller('RatingCtrl', ['$scope', '$cordovaSocialSharing', function($scope, $cordovaSocialSharing) {
+
   // set the rate and max variables
-  $scope.rate = 1;
+  $scope.rate = 4;
   $scope.max = 5;
+
+  // sharing ratings
+
+  $scope.shareAnywhere = function() {
+    console.log("works!");
+    $cordovaSocialSharing.share("I just got help fixing my dryer from my Sears technician, Louis! I gave him a 5 star rating!", "Sears Appliance Services", null, "http://sears.com");
+  }
+
+  $scope.shareViaTwitter = function(message, image, link) {
+    $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
+      $cordovaSocialSharing.shareViaTwitter(message, image, link);
+    }, function(error) {
+      alert("Cannot share on Twitter");
+    });
+  }
+
 }])
 
 app.controller('ChatCtrl', ['$scope', function($scope) {
