@@ -2,7 +2,7 @@
 
 app.controller('RatingCtrl', ['$scope', function($scope) {
   // set the rate and max variables
- $scope.rate = 1;
+ $scope.rate = 4;
  $scope.max = 5;
 }])
 
