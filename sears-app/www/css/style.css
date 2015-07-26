@@ -220,3 +220,7 @@ h2 {
 .button {
   border: none;
 }
+
+.item-radio input:checked ~ .item-content {
+  background: #6DFA89 none repeat scroll 0% 0%;
+}
