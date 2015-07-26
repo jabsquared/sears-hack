@@ -1,0 +1,58 @@
+<ion-view name="Rating">
+  <ion-header-bar>
+    <button class="pull-right button button-icon icon ion-ios-checkmark-empty"></button>
+  </ion-header-bar>
+  <ion-content ng-controller="startController">
+    <div class="headings">
+      <h3 class="heading-text">
+        REPAIR SCHEDULED
+      </h3>
+      <h4 class="heading-date">
+        July 26, 2015 | 01:00 PM
+      </h4>
+    </div>
+    <div class="sub-heading">
+      <p>Jane Doe will be visiting for the repairs. Check out her specialization and reviews.
+      </p>
+    </div>
+    <ion-item>
+      <div class="tech-image">
+        <img src="http://i.imgur.com/91gRw16.png" class="avatar">
+        <h2>JANE DOE</h2>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="ratings">
+        <ul class="rating">
+          <li>
+            <rating ng-model="rate" max="max"></rating>
+            <div class="reviews">
+              <p>1234 reviews</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <ion-list>
+        <ion-item>
+          <div class="tech-info">
+            <div class="tech-image-review">
+              <img src="http://i.imgur.com/91gRw16.png" class="avatar">
+            </div>
+            <div class="tech-name">
+              <h5>Aaliyah Cramer</h5>
+            </div>
+            <div class="posted">
+              <h6>2 days ago</h6>
+            </div>
+                      </div>
+        </ion-item>
+                  <ion-item>
+          <div class="tech-review">
+            <p>
+              She is really a master technician. Fixed my washer and dryer in a jiffy and the charges were really economical. Highly recommended.
+            </p>
+          </div>
+        </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>
