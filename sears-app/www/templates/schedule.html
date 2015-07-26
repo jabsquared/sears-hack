@@ -1,11 +1,43 @@
 <ion-view name="event">
   <ion-header-bar class="bar-light">
-    <a href="#/tickets" class="button icon ion-arrow-left-c"></a>
+    <a class="button icon ion-arrow-left-c" href="#/tickets"></a>
     <h4 style="margin: 0 auto; margin-top: 0.5em">
       July 2015
     </h4>
   </ion-header-bar>
   <ion-content>
-      <img style="width: 100%; height: 22em; margin-top: 0em" src="img/calendar.png" alt="" />
+    <img alt="" src="img/calendar.png" style="width: 100%; height: 22em; margin-top: 0em"/>
+    <div style="width: 100%; background-color: #f8f8f9">
+      <p style="padding-bottom: 0.4em">
+        Select time slot
+      </p>
+    </div>
+    <div class="list" style="width: 100%">
+
+      <label class="item item-radio">
+        <input name="group" type="radio">
+        <div class="item-content">
+          8:00 am  -  12:00 pm
+        </div>
+        <i class="radio-icon ion-checkmark"></i>
+      </label>
+      <label class="item item-radio">
+        <input name="group" type="radio">
+        <div class="item-content">
+          1:00 pm  -  5:00 pm
+        </div>
+        <i class="radio-icon ion-checkmark"></i>
+      </label>
+      <label class="item item-radio">
+        <input name="group" type="radio">
+        <div class="item-content">
+          8:00 pm  -  12:00 am
+        </div>
+        <i class="radio-icon ion-checkmark"></i>
+      </label>
+    </div>
+    <a ng-href="#/tickets" style="margin: 1em 0em" class="button-schedule button orange dubsquare">
+			SCHEDULE NOW!
+		</a>
   </ion-content>
 </ion-view>
