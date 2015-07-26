@@ -41,31 +41,33 @@ app.controller('VideoCtrl', ['$scope', function($scope) {
     });
   }
 
-  //default media options
-  // var mediaOptions = {
-  //   audio: true,
-  //   video: true
-  // };
-  //
-  // if (selectedVideoDevice && selectedVideoDevice.sourceId) {
-  //   mediaOptions.video = {
-  //     mandatory: [{
-  //       sourceId: selectedVideoDevice.sourceId
-  //     }]
-  //   };
-  // }
-  //
-  // var webrtc = new SimpleWebRTC({
-  //   localVideoEl: 'localVideo',
-  //   remoteVideosEl: 'remotesVideos',
-  //   autoRequestMedia: true,
-  //   media: mediaOptions
-  // });
+  $scope.startRTC = function() {
+    //default media options
+    var mediaOptions = {
+      audio: true,
+      video: true
+    };
 
-  // webrtc.on('readyToCall', function() {
-  //   // you can name it anything
-  //   webrtc.joinRoom('jabSquared');
-  // });
+    if (selectedVideoDevice && selectedVideoDevice.sourceId) {
+      mediaOptions.video = {
+        mandatory: [{
+          sourceId: selectedVideoDevice.sourceId
+        }]
+      };
+    }
+
+    var webrtc = new SimpleWebRTC({
+      localVideoEl: 'localVideo',
+      remoteVideosEl: 'remotesVideos',
+      autoRequestMedia: true,
+      media: mediaOptions
+    });
+
+    webrtc.on('readyToCall', function() {
+      // you can name it anything
+      webrtc.joinRoom('jabSquared');
+    });
+  }
 
 }])
 
