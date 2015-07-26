@@ -1,9 +1,26 @@
 // All of the apps controllers are located here.
 
-app.controller('RatingCtrl', ['$scope', function($scope) {
+app.controller('RatingCtrl', ['$scope', '$cordovaSocialSharing', function($scope, $cordovaSocialSharing) {
+
   // set the rate and max variables
- $scope.rate = 4;
- $scope.max = 5;
+  $scope.rate = 4;
+  $scope.max = 5;
+
+  // sharing ratings
+
+  $scope.shareAnywhere = function() {
+    console.log("works!");
+    $cordovaSocialSharing.share("This is your message", "This is your subject", "www/imagefile.png", "http://blog.nraboy.com");
+  }
+
+  $scope.shareViaTwitter = function(message, image, link) {
+    $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
+      $cordovaSocialSharing.shareViaTwitter(message, image, link);
+    }, function(error) {
+      alert("Cannot share on Twitter");
+    });
+  }
+
 }])
 
 app.controller('ChatCtrl', ['$scope', function($scope) {
@@ -64,7 +81,7 @@ app.controller('VideoCtrl', ['$scope', function($scope) {
     mediaOptions.video = {
       mandatory: [{
         sourceId: selectedVideoDevice.sourceId
-        // sourceId: 43972bf8f1844c154daeb00e62b241bf65ca68be56bc508ae4d7c5b4b17ee8be
+          // sourceId: 43972bf8f1844c154daeb00e62b241bf65ca68be56bc508ae4d7c5b4b17ee8be
 
       }]
     };
