@@ -8,5 +8,11 @@
     <video id="localVideo"></video>
     <div id="remoteVideos"></div>
 
+    <div ng-repeat="ad in audioDevices">
+      {{ad.id}}
+    </div>
+    <div ng-repeat="vd in videoDevices">
+      {{vd.id}}
+    </div>
   </ion-content>
 </ion-view>
