@@ -2,7 +2,7 @@
 	<ion-header-bar align-title="center">
 		<button class="button-home button-icon icon ion-navicon"></button>
 		<div class="logo title">
-			<img ng-src="../img/sears-blue.png">
+			<h3 style="color: #003399; margin-top: 0.5em; font-family: arial">sears</h3>
 		</div>
 	</ion-header-bar>
 	<ion-tabs class="tabs-light tabs-striped tabs-top">
@@ -14,29 +14,29 @@
 	</ion-tabs>
 	<ion-content padding="true" has-header="true" class="center">
 		<div>
-			<p>Bringing home services to your fingertips</p>
+			<p style="color: #003399; margin-top: 1em">Bringing home services to your fingertips</p>
 		</div>
 
-		<button class="button-schedule button button-positive dubsquare">
+		<a ng-href="#/tickets" style="margin: 1em 0em" class="button-schedule button orange dubsquare">
 			SCHEDULE A SERVICE
-		</button>
+		</a>
 		<div class="row">
-			<button class="button-icon icon ion-ios-gear-outline square button-light">
-				<h5>PRODUCT REPAIR</h5>
+			<button style="border-color: #B0B0B1" class="button-icon icon ion-settings square button-light" ng-href="#/tickets">
+				<h6 style="color: #003399; font-weight: 600; margin-top: 3em" >PRODUCT REPAIR</h6>
 			</button>
 
-			<button class="button-icon icon ion-ios-home-outline square button-light">
-				<h5>HOME IMPROVEMENT</h5>
+			<button style="border-color: #B0B0B1" class="button-icon icon ion-home square button-light">
+				<h6 style="color: #003399; font-weight: 600; margin-top: 3em">HOME IMPROVEMENT</h6>
 			</button>
 
 		</div>
 		<div class="button-bar row">
-			<button class="button-icon icon ion-ios-trash-outline square button-light">
-				<h5>DIY</h5>
+			<button style="border-color: #B0B0B1" class="button-icon icon ion-ribbon-a square button-light">
+				<h6 style="color: #003399; font-weight: 600; margin-top: 3em">DIY</h6>
 			</button>
 
-			<button class="button-icon icon ion-ios-loop square button-light">
-				<h5>INSTALLATION</h5>
+			<button style="border-color: #B0B0B1" class="button-icon icon ion-refresh square button-light">
+				<h6 style="color: #003399; font-weight: 600; margin-top: 3em">INSTALLATION</h6>
 			</button>
 		</div>
 	</ion-content>

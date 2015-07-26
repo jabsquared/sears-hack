@@ -46,12 +46,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
     controller: 'VideoCtrl'
   })
 
+  .state('schedule', {
+    url: '/schedule',
+    templateUrl: 'templates/schedule.html',
+    controller: 'ScheduleCtrl'
+  })
+
   .state('home',{
-    url: '/home/',
+    url: '/home',
     templateUrl:'templates/home.html',
     controller: 'HomeCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tickets');
+  $urlRouterProvider.otherwise('/home');
 });

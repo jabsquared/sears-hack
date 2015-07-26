@@ -1,21 +1,63 @@
 <ion-view name="event">
-  <!-- <ion-header-bar class="bar-light">
-    <a href="#/schedule" class="button icon ion-arrow-left-b"></a>
-    <img id="logo-img" src="./img/logo.png" alt="Univision" href="#/schedule" />
-  </ion-header-bar> -->
+  <ion-header-bar class="bar-light">
+    <a href="#/home" class="button icon ion-arrow-left-c"></a>
+    <h4 style="margin: 0 auto; margin-top: 0.5em">
+      SUBMIT AND ISSUE
+    </h4>
+  </ion-header-bar>
   <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="tech in techs" class="item">
-        <div class="ticket-body" ng-style="">
 
-          <div class="status" ng-style="">
-              <!-- the status gets listed here via color -->
-          </div>
+    <div class="prod-search">
+      <div class="prod-search-inner" >
+        <!-- <label class="item item-input item-floating-label"> -->
+        <a href="#">
+          <img style="display:inline-block" src="img/barcode.png" class="icon ion-search placeholder-icon" />
+          <h4 class="icon" style="display:inline-block; margin: 0px; height: 100%">Scan Your Item</h4>
+        </a>
+        <!-- </label> -->
+      </div>
+    </div>
 
-          <img class="prod-img" src="" alt="" />
-          <button ng-click=''>Run!</button>
-        </div>
-      </ion-item>
-    </ion-list>
+    <div class="list">
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">TYPE</span>
+        <!-- <input type="text" placeholder="Front Load"> -->
+      </label>
+      <select class="options" ng-model='test' ng-options="type for type in types" ng-change='changeType(test)'>
+        <!-- <option>
+          {{type}}
+        </option> -->
+      </select>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">BRAND</span>
+      </label>
+      <select class="options">
+        <option ng-repeat="brand in brands">
+          {{brand}}
+        </option>
+      </select>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">WARRANTY STATUS</span>
+        <!-- <input type="text" placeholder="john@suhr.com"> -->
+      </label>
+      <select class="options">
+        <option ng-repeat="w in warrantys">
+          {{w}}
+        </option>
+      </select>
+      <label class="item item-input item-select">
+        <span class="input-label">NATURE OF PROBLEM</span>
+        <!-- <input type="text" placeholder="Some Bullshit"> -->
+      </label>
+      <select class="options">
+        <option ng-repeat="problem in problems">
+          {{problem}}
+        </option>
+      </select>
+    </div>
+
+    <a class="orange button button-large" ng-href="#/schedule" type="button" name="checkcal">SUBMIT</a>
+
   </ion-content>
 </ion-view>

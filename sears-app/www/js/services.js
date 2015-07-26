@@ -61,6 +61,6 @@ app.factory('techs', ['$http', function($http) {
         }
         return null;
       }
-    };
+    }
   }
 }]);
