@@ -1,6 +1,6 @@
 <ion-view name="video" view-title="Video Customer">
   <ion-header-bar class="bar-light">
-    <button href="#/schedule" class="button button-positive ion-arrow-left-b" ></button>
+    <button href="#/schedule" class="button button-positive ion-arrow-left-b"></button>
 
     <h1 class="title">Realtime Support</h1>
   </ion-header-bar>
@@ -8,11 +8,16 @@
     <video id="localVideo"></video>
     <div id="remoteVideos"></div>
 
-    <div ng-repeat="ad in audioDevices">
-      {{ad.id}}
-    </div>
-    <div ng-repeat="vd in videoDevices">
-      {{vd.id}}
-    </div>
+    <label class="item-input item-select">
+      <span class="input-label">Video</span>
+      <select class="options">
+        <option ng-repeat="vd in videoDevices" ng-model="selectedVideoDevice" >
+          {{vd.id}}
+        </option>
+      </select>
+    </label>
+
+
+
   </ion-content>
 </ion-view>
