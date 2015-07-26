@@ -7,6 +7,7 @@
 	<title></title>
 
 	<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+	<link href="lib/ionic-rating/ionic-rating.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 
 	<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -15,12 +16,14 @@
 
 	<!-- ionic/angularjs js -->
 	<script src="lib/ionic/js/ionic.bundle.js"></script>
+	<script src="lib/ionic-rating/ionic-rating.js"></script>
 
 	<!-- cordova script (this will be a 404 during development) -->
 	<script src="cordova.js"></script>
 
 	<!-- your app's js -->
 	<script src="js/app.js"></script>
+	<script src="js/controller.js"></script>
 </head>
 
 <body ng-app="starter">
@@ -28,7 +31,7 @@
 		<ion-header-bar>
 			<button class="pull-right button button-icon icon ion-ios-checkmark-empty"></button>
 		</ion-header-bar>
-		<ion-content>
+		<ion-content ng-controller="startController">
 			<div class="headings">
 				<h3 class="heading-text">
 					REPAIR SCHEDULED
@@ -41,12 +44,23 @@
 				<p>Jane Doe will be visiting for the repairs. Check out her specialization and reviews.
 				</p>
 			</div>
-			<ion-item>
-				<div class="tech-image">
-					<img src="http://i.imgur.com/91gRw16.png" class="avatar">
-                    <h2>JANE DOE</h2>
-				</div>
-			</ion-item>
+			<ion-list>
+				<ion-item>
+					<div class="tech-image">
+						<img src="http://i.imgur.com/91gRw16.png" class="avatar">
+						<h2>JANE DOE</h2>
+					</div>
+				</ion-item>
+				<ion-item>
+					<div class="ratings">
+						<ul class="rating">
+							<li>
+								<rating ng-model="rate" max="max"></rating>
+							</li>
+						</ul>
+					</div>
+				</ion-item>
+			</ion-list>
 		</ion-content>
 	</ion-pane>
 </body>
