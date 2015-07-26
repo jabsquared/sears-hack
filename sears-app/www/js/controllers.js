@@ -2,8 +2,8 @@
 
 app.controller('RatingCtrl', ['$scope', function($scope) {
   // set the rate and max variables
- $scope.rate = 1;
- $scope.max = 5;
+  $scope.rate = 1;
+  $scope.max = 5;
 }])
 
 app.controller('ChatCtrl', ['$scope', function($scope) {
@@ -20,70 +20,85 @@ app.controller('ScheduleCtrl', ['$scope', function($scope) {
 
 app.controller('VideoCtrl', ['$scope', function($scope) {
 
-  $scope.audioDevices = [];
-
-  $scope.videoDevices = [];
-
-  if (typeof MediaStreamTrack === 'undefined') {
-    console.log('This browser does not support MediaStreamTrack.');
-    $scope.audioDevices.push({
-      id: 'default',
-      label: 'Default'
-    });
-    $scope.videoDevices.push({
-      id: 'default',
-      label: 'Default'
-    });
-  } else {
-    MediaStreamTrack.getSources(function(sourceInfos) {
-
-      for (var i = 0; i !== sourceInfos.length; ++i) {
-        var sourceInfo = sourceInfos[i];
-        if (sourceInfo.kind === 'audio') {
-          sourceInfo.label = sourceInfo.label || 'microphone ' + ($scope.audioDevices.length + 1);
-          $scope.audioDevices.push(sourceInfo);
-
-        } else if (sourceInfo.kind === 'video') {
-          sourceInfo.label = sourceInfo.label || 'camera ' + ($scope.videoDevices.length + 1);
-          $scope.videoDevices.push(sourceInfo);
-        }
-      }
-    });
-  }
-
-  //$scope.selectedVideoDevice="";
-
-  var selectedVideoDevice = $scope.videoDevices[2];
-
-  var mediaOptions = {
-    audio: true,
-    video: true
-  };
-
-  if (selectedVideoDevice && selectedVideoDevice.sourceId) {
-    mediaOptions.video = {
-      mandatory: [{
-        sourceId: selectedVideoDevice.sourceId
-        // sourceId: 43972bf8f1844c154daeb00e62b241bf65ca68be56bc508ae4d7c5b4b17ee8be
-
-      }]
-    };
-  }
 
   var webrtc = new SimpleWebRTC({
-    localVideoEl: 'localVideo',
-    remoteVideosEl: 'remotesVideos',
-    autoRequestMedia: true,
-    media: mediaOptions
-  });
+	localVideoEl: 'localVideo',
+	remoteVideosEl: 'remoteVideo',
+	autoRequestMedia: true
+});
 
-  webrtc.on('readyToCall', function() {
-    // you can name it anything
-    webrtc.joinRoom('jabSquared');
-  });
+webrtc.on('readyToCall', function () {
+	webrtc.joinRoom('My room name');
+});
+
+  //
+  // $scope.audioDevices = [];
+  //
+  // $scope.videoDevices = [];
+  //
+  // if (typeof MediaStreamTrack === 'undefined') {
+  //   console.log('This browser does not support MediaStreamTrack.');
+  //   $scope.audioDevices.push({
+  //     id: 'default',
+  //     label: 'Default'
+  //   });
+  //   $scope.videoDevices.push({
+  //     id: 'default',
+  //     label: 'Default'
+  //   });
+  // } else {
+  //   MediaStreamTrack.getSources(function(sourceInfos) {
+  //
+  //     for (var i = 0; i !== sourceInfos.length; ++i) {
+  //       var sourceInfo = sourceInfos[i];
+  //       if (sourceInfo.kind === 'audio') {
+  //         sourceInfo.label = sourceInfo.label || 'microphone ' + ($scope.audioDevices.length + 1);
+  //         $scope.audioDevices.push(sourceInfo);
+  //
+  //       } else if (sourceInfo.kind === 'video') {
+  //         sourceInfo.label = sourceInfo.label || 'camera ' + ($scope.videoDevices.length + 1);
+  //         $scope.videoDevices.push(sourceInfo);
+  //       }
+  //     }
+  //   });
+  // }
+  //
+  // //$scope.selectedVideoDevice="";
+  //
+  // //var selectedVideoDevice = $scope.videoDevices[2];
+  //
   // $scope.startRTC = function(selectedVideoDevice) {
   //   //default media options
   //
+  //     var mediaOptions = {
+  //       audio: true,
+  //       video: true
+  //     };
+  //
+  //     if (selectedVideoDevice && selectedVideoDevice.sourceId) {
+  //       mediaOptions.video = {
+  //         mandatory: [{
+  //           sourceId: selectedVideoDevice.sourceId
+  //           // sourceId: 43972bf8f1844c154daeb00e62b241bf65ca68be56bc508ae4d7c5b4b17ee8be
+  //
+  //         }]
+  //       };
+  //     }
+  //
+  //     var webrtc = new SimpleWebRTC({
+  //     // the id/element dom element that will hold "our" video
+  //     localVideoEl: 'localVideo',
+  //     // the id/element dom element that will hold remote videos
+  //     remoteVideosEl: 'remoteVideos',
+  //     // immediately ask for camera access
+  //     autoRequestMedia: true,
+  //     media: mediaOptions
+  //     });
+  //
+  //     webrtc.on('readyToCall', function() {
+  //       // you can name it anything
+  //       webrtc.joinRoom('jabSquared');
+  //     });
   // }
 
 }])
