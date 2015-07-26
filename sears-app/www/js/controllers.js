@@ -1,10 +1,10 @@
 // All of the apps controllers are located here.
 
-app.controller('ChatCtrl' ['$scope', function($scope){
+app.controller('ChatCtrl', ['$scope', function($scope){
 
 }])
 
-app.controller('VideoCtrl' ['$scope', function($scope){
+app.controller('VideoCtrl', ['$scope', function($scope){
 
 }])
 
