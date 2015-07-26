@@ -49,33 +49,40 @@ app.controller('VideoCtrl', ['$scope', function($scope) {
     });
   }
 
-  $scope.startRTC = function() {
-    //default media options
-    var mediaOptions = {
-      audio: true,
-      video: true
+  //$scope.selectedVideoDevice="";
+
+  var selectedVideoDevice = $scope.videoDevices[2];
+
+  var mediaOptions = {
+    audio: true,
+    video: true
+  };
+
+  if (selectedVideoDevice && selectedVideoDevice.sourceId) {
+    mediaOptions.video = {
+      mandatory: [{
+        sourceId: selectedVideoDevice.sourceId
+        // sourceId: 43972bf8f1844c154daeb00e62b241bf65ca68be56bc508ae4d7c5b4b17ee8be
+
+      }]
     };
-
-    if (selectedVideoDevice && selectedVideoDevice.sourceId) {
-      mediaOptions.video = {
-        mandatory: [{
-          sourceId: selectedVideoDevice.sourceId
-        }]
-      };
-    }
-
-    var webrtc = new SimpleWebRTC({
-      localVideoEl: 'localVideo',
-      remoteVideosEl: 'remotesVideos',
-      autoRequestMedia: true,
-      media: mediaOptions
-    });
-
-    webrtc.on('readyToCall', function() {
-      // you can name it anything
-      webrtc.joinRoom('jabSquared');
-    });
   }
+
+  var webrtc = new SimpleWebRTC({
+    localVideoEl: 'localVideo',
+    remoteVideosEl: 'remotesVideos',
+    autoRequestMedia: true,
+    media: mediaOptions
+  });
+
+  webrtc.on('readyToCall', function() {
+    // you can name it anything
+    webrtc.joinRoom('jabSquared');
+  });
+  // $scope.startRTC = function(selectedVideoDevice) {
+  //   //default media options
+  //
+  // }
 
 }])
 

@@ -1,6 +1,6 @@
 <ion-view name="video" view-title="Video Customer">
   <ion-header-bar class="bar-light">
-    <button href="#/schedule" class="button button-positive ion-arrow-left-b"></button>
+    <button href="#/tickets" class="button button-positive ion-arrow-left-b"></button>
 
     <h1 class="title">Realtime Support</h1>
   </ion-header-bar>
@@ -17,6 +17,9 @@
       </select>
     </label>
 
+    {{selectedVideoDevice}}
+
+    <button class="button button-positive" name="button" ng-click="startRTC(selectedVideoDevice)"></button>
 
 
   </ion-content>
