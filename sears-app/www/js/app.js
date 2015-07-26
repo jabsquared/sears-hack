@@ -34,6 +34,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
     controller: 'ChatCtrl'
   })
 
+  .state('rating', {
+    url: '/rating',
+    templateUrl: 'templates/rating.html',
+    controller: 'RatingCtrl'
+  })
+
+  .state('video', {
+    url: '/video',
+    templateUrl: 'templates/video.html',
+    controller: 'VideoCtrl'
+  })
+
   .state('video', {
     url: '/video',
     templateUrl: 'templates/video.html',
