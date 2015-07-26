@@ -28,17 +28,23 @@ app.config(function($stateProvider, $urlRouterProvider) {
     controller: 'TicketsCtrl'
   })
 
-  .state('event', {
-    url: '/event/:id',
-    templateUrl: 'templates/event.html',
-    controller: 'EventCtrl'
+  .state('chat', {
+    url: '/chat',
+    templateUrl: 'templates/chat.html',
+    controller: 'ChatCtrl'
+  })
+
+  .state('video', {
+    url: '/video',
+    templateUrl: 'templates/video.html',
+    controller: 'VideoCtrl'
   })
 
   .state('home',{
     url: '/home/',
     templateUrl:'templates/home.html',
     controller: 'HomeCtrl'
-  })
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tickets');
