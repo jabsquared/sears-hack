@@ -9,10 +9,10 @@ app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
+    if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
-    if(window.StatusBar) {
+    if (window.StatusBar) {
       StatusBar.styleDefault();
     }
   });
@@ -22,7 +22,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
   // setup state for login page
-    .state('tickets', {
+  .state('tickets', {
     url: '/tickets',
     templateUrl: 'templates/tickets.html',
     controller: 'TicketsCtrl'
@@ -32,7 +32,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/event/:id',
     templateUrl: 'templates/event.html',
     controller: 'EventCtrl'
-  });
+  })
+
+  .state('home',{
+    url: '/home/',
+    templateUrl:'templates/home.html',
+    controller: 'HomeCtrl'
+  })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tickets');
