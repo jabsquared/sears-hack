@@ -10,7 +10,7 @@ app.controller('RatingCtrl', ['$scope', '$cordovaSocialSharing', function($scope
 
   $scope.shareAnywhere = function() {
     console.log("works!");
-    $cordovaSocialSharing.share("This is your message", "This is your subject", "www/imagefile.png", "http://blog.nraboy.com");
+    $cordovaSocialSharing.share("I just got help fixing my dryer from my Sears technician, Louis! I gave him a 5 star rating!", "Sears Appliance Services", null, "http://sears.com");
   }
 
   $scope.shareViaTwitter = function(message, image, link) {
