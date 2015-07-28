@@ -37,53 +37,20 @@ app.controller('ScheduleCtrl', ['$scope', function($scope) {
 
 app.controller('VideoCtrl', ['$scope', function($scope) {
 
-
   var webrtc = new SimpleWebRTC({
-	localVideoEl: 'localVideo',
-	remoteVideosEl: 'remoteVideo',
-	autoRequestMedia: true
-});
+    localVideoEl: 'localVideo',
+    remoteVideosEl: 'remoteVideo',
+    autoRequestMedia: true
+  });
 
-webrtc.on('readyToCall', function () {
-	webrtc.joinRoom('My room name');
-});
+  webrtc.on('readyToCall', function() {
+    webrtc.joinRoom('Some Fucking Unique Name');
+  });
 
-  //
-  // $scope.audioDevices = [];
-  //
-  // $scope.videoDevices = [];
-  //
-  // if (typeof MediaStreamTrack === 'undefined') {
-  //   console.log('This browser does not support MediaStreamTrack.');
-  //   $scope.audioDevices.push({
-  //     id: 'default',
-  //     label: 'Default'
-  //   });
-  //   $scope.videoDevices.push({
-  //     id: 'default',
-  //     label: 'Default'
-  //   });
-  // } else {
-  //   MediaStreamTrack.getSources(function(sourceInfos) {
-  //
-  //     for (var i = 0; i !== sourceInfos.length; ++i) {
-  //       var sourceInfo = sourceInfos[i];
-  //       if (sourceInfo.kind === 'audio') {
-  //         sourceInfo.label = sourceInfo.label || 'microphone ' + ($scope.audioDevices.length + 1);
-  //         $scope.audioDevices.push(sourceInfo);
-  //
-  //       } else if (sourceInfo.kind === 'video') {
-  //         sourceInfo.label = sourceInfo.label || 'camera ' + ($scope.videoDevices.length + 1);
-  //         $scope.videoDevices.push(sourceInfo);
-  //       }
-  //     }
-  //   });
-  // }
-  //
-  // //$scope.selectedVideoDevice="";
-  //
-  // //var selectedVideoDevice = $scope.videoDevices[2];
-  //
+  $scope.audioDevices = [];
+
+  $scope.videoDevices = [];
+
   // $scope.startRTC = function(selectedVideoDevice) {
   //   //default media options
   //
