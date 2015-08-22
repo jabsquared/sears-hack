@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <ion-view view-title="home">
 	<ion-header-bar align-title="center">
 		<button class="button-home button-icon icon ion-navicon"></button>
@@ -5,42 +6,50 @@
 			<h3 style="color: #003399; margin-top: 0.5em; font-family: arial">sears</h3>
 		</div>
 	</ion-header-bar>
-	<ion-tabs class="tabs-light tabs-striped tabs-top">
+
+	<ion-tabs class="tabs-light tabs-striped tabs-top bar-subheader">
 		<!-- Tab 1 content -->
 		<ion-tab title="SHOP">
 		</ion-tab>
 		<ion-tab title="HOME SERVICES">
 		</ion-tab>
 	</ion-tabs>
-	<ion-content padding="true" has-header="true" class="center">
+
+	<ion-content padding="true" class="center has-header has-subheader">
 		<div>
-			<p style="color: #003399; margin-top: 1em">Bringing home services to your fingertips</p>
+			<p style="color: #003399;">Bringing home services to your fingertips</p>
 		</div>
 
 		<a ng-href="#/tickets" style="margin: 1em 0em" class="button-schedule button orange dubsquare">
 			SCHEDULE A SERVICE
 		</a>
-		<div class="row">
-			<button style="border-color: #B0B0B1" class="button-icon icon ion-settings square button-light">
-				<a style="text-decoration: none" ng-href="#/tickets">
-				<h6 style="color: #003399; font-weight: 600; margin-top: 3em" >PRODUCT REPAIR</h6>
-				</a>
-			</button>
 
-			<button style="border-color: #B0B0B1" class="button-icon icon ion-home square button-light">
-				<h6 style="color: #003399; font-weight: 600; margin-top: 3em">HOME IMPROVEMENT</h6>
-			</button>
+		<div style="height:45vh">
+			<div class="button-bar">
+				<button style="border-color: #B0B0B1" class="button-icon icon ion-settings square button-light">
+					<a style="text-decoration: none" ng-href="#/tickets">
+					<h6 style="color: #003399; font-weight: 600; margin-top: 3em" >PRODUCT REPAIR</h6>
+					</a>
+				</button>
 
+				<button style="border-color: #B0B0B1" class="button-icon icon ion-home square button-light">
+					<i class="icon ion-home"></i>
+					<h6 style="color: #003399; font-weight: 600; margin-top: 3em">HOME IMPROVEMENT</h6>
+				</button>
+
+			</div>
+
+			<div class="button-bar">
+				<button style="border-color: #B0B0B1" class="button-icon icon ion-ribbon-a square button-light">
+					<h6 style="color: #003399; font-weight: 600; margin-top: 3em">DIY</h6>
+				</button>
+
+				<button style="border-color: #B0B0B1" class="button-icon icon ion-refresh square button-light">
+					<h6 style="color: #003399; font-weight: 600; margin-top: 3em">INSTALLATION</h6>
+				</button>
+			</div>
 		</div>
-		<div class="button-bar row">
-			<button style="border-color: #B0B0B1" class="button-icon icon ion-ribbon-a square button-light">
-				<h6 style="color: #003399; font-weight: 600; margin-top: 3em">DIY</h6>
-			</button>
 
-			<button style="border-color: #B0B0B1" class="button-icon icon ion-refresh square button-light">
-				<h6 style="color: #003399; font-weight: 600; margin-top: 3em">INSTALLATION</h6>
-			</button>
-		</div>
 	</ion-content>
 </ion-view>
 
